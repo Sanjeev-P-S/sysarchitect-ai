@@ -11,7 +11,7 @@ Design system architectures, explain your choices, and get instant, AI-powered a
 - Added health check endpoint
 - Enabled Swagger documentation
 
-- ###  Phase 2 - Interactive Diagram Editor
+###  Phase 2 - Interactive Diagram Editor
 - Next.js 15 frontend
 - React Flow canvas
 - Predefined architecture nodes
