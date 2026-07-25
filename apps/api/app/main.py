@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 from app.graph.builder import GraphBuilder
+from app.rules.engine import RuleEngine
 from app.schemas.diagram import DiagramRequest
 
 app = FastAPI(title="SysArchitect.ai API")
@@ -15,7 +16,10 @@ def health():
 def evaluate_diagram(request: DiagramRequest):
     graph = GraphBuilder.build(request)
 
+    rule_result = RuleEngine.evaluate(graph)
+
     return {
-        "message": "Architecture graph created successfully",
+        "message": "Diagram evaluated successfully",
         "graph": graph.model_dump(),
+        "rule_result": rule_result.model_dump(),
     }
