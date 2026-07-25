@@ -62,3 +62,49 @@ ArchitectureGraph
 - Isolated graph construction inside a dedicated `GraphBuilder` to keep parsing logic separate from business logic.
 - Used Pydantic models to establish a stable API contract between the frontend and backend.
 - Designed the graph model as the single source of truth for all future evaluation modules (Rule Engine, Coverage Analyzer, and LLM Feedback).
+
+### ✅ Phase 4 - Deterministic Rule Engine
+
+Implemented the first version of the architecture evaluation engine using deterministic validation rules.
+
+#### Completed
+
+- Designed a structured rule evaluation model
+- Added severity levels using enums (Low, Medium, High)
+- Implemented a modular Rule Engine
+- Added five deterministic architectural validation rules:
+  - Missing Load Balancer
+  - Missing Cache
+  - Single Application Server
+  - Public Database Exposure
+  - Single Point of Failure
+- Integrated the Rule Engine into the evaluation pipeline
+- Verified all validation rules using Swagger API tests
+
+#### Evaluation Pipeline
+
+```
+React Flow Diagram
+        │
+        ▼
+DiagramRequest
+        │
+        ▼
+GraphBuilder
+        │
+        ▼
+ArchitectureGraph
+        │
+        ▼
+RuleEngine
+        │
+        ▼
+RuleResult
+```
+
+#### Engineering Decisions
+
+- Separated each validation rule into its own function following the Single Responsibility Principle.
+- Designed the Rule Engine to execute validators independently, making it easy to add or remove rules.
+- Returned structured `RuleViolation` objects instead of plain strings to support future expansion.
+- Kept the evaluation logic deterministic and independent of the LLM, allowing AI to focus solely on explanation and feedback.
