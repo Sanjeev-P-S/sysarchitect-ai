@@ -1,17 +1,21 @@
 from fastapi import FastAPI
 
-app = FastAPI(
-    title="SysArchitect.ai API",
-    description="AI-powered System Design Interview Evaluator",
-    version="1.0.0",
-)
+from app.graph.builder import GraphBuilder
+from app.schemas.diagram import DiagramRequest
 
-
-@app.get("/")
-def root():
-    return {"message": "Welcome to SysArchitect.ai API"}
+app = FastAPI(title="SysArchitect.ai API")
 
 
 @app.get("/health")
 def health():
     return {"status": "healthy"}
+
+
+@app.post("/evaluate")
+def evaluate_diagram(request: DiagramRequest):
+    graph = GraphBuilder.build(request)
+
+    return {
+        "message": "Architecture graph created successfully",
+        "graph": graph.model_dump(),
+    }
