@@ -108,3 +108,21 @@ RuleResult
 - Designed the Rule Engine to execute validators independently, making it easy to add or remove rules.
 - Returned structured `RuleViolation` objects instead of plain strings to support future expansion.
 - Kept the evaluation logic deterministic and independent of the LLM, allowing AI to focus solely on explanation and feedback.
+
+## Phase 5 – Gemini LLM Integration
+
+### Completed
+
+- Integrated Google Gemini API with FastAPI.
+- Configured secure API key loading using `.env`.
+- Implemented reusable `GeminiClient`.
+- Added prompt management module.
+- Successfully verified end-to-end LLM communication.
+- Established the AI feedback pipeline for architectural evaluation.
+
+### Current Flow
+
+React Flow
+→ Graph Builder
+→ Rule Engine
+→ Gemini
