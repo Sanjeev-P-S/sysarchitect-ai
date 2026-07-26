@@ -151,3 +151,24 @@ React Flow
 → Rule Engine
 → Coverage Analyzer
 → Gemini (Ready)
+
+## Phase 7 – Evaluation Builder
+
+### Completed
+
+- Implemented Evaluation Builder.
+- Combined Rule Engine and Coverage Analyzer into a single evaluation object.
+- Calculated an overall architecture score.
+- Generated strengths based on detected architectural concepts.
+- Generated weaknesses from deterministic rule violations.
+- Included missing concepts in the final evaluation.
+- Established the structured object that will be passed to the LLM.
+
+### Current Evaluation Pipeline
+
+React Flow
+→ Graph Builder
+→ Rule Engine
+→ Coverage Analyzer
+→ Evaluation Builder
+→ Gemini
