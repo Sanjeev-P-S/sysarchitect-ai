@@ -3,7 +3,7 @@ Design system architectures, explain your choices, and get instant, AI-powered a
 
 ## Development Progress
 
-### ✅ Phase 1 – Backend Initialization
+### Phase 1 – Backend Initialization
 
 - Initialized FastAPI backend
 - Configured Python virtual environment
@@ -11,7 +11,7 @@ Design system architectures, explain your choices, and get instant, AI-powered a
 - Added health check endpoint
 - Enabled Swagger documentation
 
-### ✅ Phase 2 - Interactive Diagram Editor
+### Phase 2 - Interactive Diagram Editor
 - Next.js 15 frontend
 - React Flow canvas
 - Predefined architecture nodes
@@ -20,7 +20,7 @@ Design system architectures, explain your choices, and get instant, AI-powered a
 - Drag & drop
 - Delete nodes
 
-### ✅ Phase 3 - Architecture Graph Builder
+### Phase 3 - Architecture Graph Builder
 
 Implemented the backend pipeline for converting frontend React Flow diagrams into an internal architecture graph representation.
 
@@ -63,7 +63,7 @@ ArchitectureGraph
 - Used Pydantic models to establish a stable API contract between the frontend and backend.
 - Designed the graph model as the single source of truth for all future evaluation modules (Rule Engine, Coverage Analyzer, and LLM Feedback).
 
-### ✅ Phase 4 - Deterministic Rule Engine
+### Phase 4 - Deterministic Rule Engine
 
 Implemented the first version of the architecture evaluation engine using deterministic validation rules.
 
@@ -126,3 +126,28 @@ React Flow
 → Graph Builder
 → Rule Engine
 → Gemini
+
+## Phase 6 – URL Shortener Coverage Analyzer
+
+### Completed
+
+- Implemented deterministic concept coverage analysis for the URL Shortener interview problem.
+- Added Coverage Analyzer module.
+- Detects required architectural components:
+  - Client
+  - Load Balancer
+  - Application Server
+  - Cache
+  - Database
+- Calculates architecture coverage percentage.
+- Identifies covered concepts.
+- Identifies missing concepts.
+- Integrated coverage analysis into the `/evaluate` API response.
+
+### Current Evaluation Pipeline
+
+React Flow
+→ Graph Builder
+→ Rule Engine
+→ Coverage Analyzer
+→ Gemini (Ready)
