@@ -9,6 +9,8 @@ from app.llm.prompts import hello_prompt
 
 from app.coverage.analyzer import CoverageAnalyzer
 
+from app.evaluation.builder import EvaluationBuilder
+
 load_dotenv()
 
 
@@ -37,10 +39,8 @@ def evaluate_diagram(request: DiagramRequest):
 
     rule_result = RuleEngine.evaluate(graph)
     coverage = CoverageAnalyzer.analyze(graph)
-
-    return {
-        "message": "Diagram evaluated successfully",
-        "graph": graph.model_dump(),
-        "rule_result": rule_result.model_dump(),
-        "coverage": coverage.model_dump(),
-    }
+    evaluation = EvaluationBuilder.build(
+    rule_result,
+    coverage,
+    )
+    return evaluation.model_dump()
