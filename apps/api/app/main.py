@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.graph.builder import GraphBuilder
 from app.rules.engine import RuleEngine
@@ -15,7 +16,15 @@ load_dotenv()
 
 
 app = FastAPI(title="SysArchitect.ai API")
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/health")
 def health():

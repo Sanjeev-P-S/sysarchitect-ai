@@ -8,9 +8,9 @@ type Props = {
 
 export default function NodePalette({ onAddNode }: Props) {
   return (
-    <div className="w-64 rounded-lg border bg-white p-4 shadow-sm">
-      <h2 className="mb-4 text-lg font-semibold">
-        Architecture Nodes
+    <div className="w-72 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <h2 className="mb-5 text-xl font-bold text-slate-800">
+          Architecture Nodes
       </h2>
 
       <div className="space-y-2">
@@ -18,7 +18,24 @@ export default function NodePalette({ onAddNode }: Props) {
           <button
             key={node}
             onClick={() => onAddNode(node)}
-            className="w-full rounded border p-2 text-left transition hover:bg-slate-100"
+            className="
+              w-full
+              rounded-xl
+              border
+              border-slate-200
+              bg-white
+              px-4
+              py-3
+              text-left
+              font-medium
+              text-slate-700
+              transition-all
+              duration-200
+              hover:border-blue-500
+              hover:bg-blue-50
+              hover:text-blue-700
+              hover:shadow-sm
+            "
           >
             {node}
           </button>

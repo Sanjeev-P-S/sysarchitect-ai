@@ -30,7 +30,7 @@ export default function DiagramCanvas({
   onConnect,
 }: DiagramCanvasProps) {
   return (
-    <div className="h-[75vh] flex-1 rounded-lg border bg-white">
+    <div className="h-[75vh] flex-1 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
       <ReactFlow
         nodes={nodes}
         edges={edges}
